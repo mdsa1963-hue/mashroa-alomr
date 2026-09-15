@@ -160,6 +160,121 @@
       border:1px solid var(--line);border-radius:18px;padding:10px;box-shadow:var(--shadow)
     }
     .sticky .btn{width:100%}
+
+
+    .hero-proof{
+      margin:26px auto 8px;
+      max-width:820px;
+      background:linear-gradient(135deg,#fffaf0,#eef6f1);
+      border:1px solid #e7d7aa;
+      border-radius:22px;
+      padding:22px 24px;
+      box-shadow:0 10px 28px rgba(24,51,39,.06);
+    }
+    .hero-proof .question{
+      font-size:clamp(23px,3vw,31px);
+      font-weight:900;
+      color:var(--primary-dark);
+      margin:0 0 6px;
+    }
+    .hero-proof .answer{
+      font-size:clamp(18px,2.4vw,24px);
+      font-weight:800;
+      color:var(--gold);
+      margin:0 0 8px;
+    }
+    .hero-proof .note{
+      font-size:14px;
+      color:var(--muted);
+      margin:0 0 12px;
+      line-height:1.8;
+    }
+    .hero-proof .link{
+      display:inline-block;
+      font-weight:800;
+      color:var(--primary);
+      border-bottom:1px dashed var(--primary);
+    }
+
+    .proof-strip{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px
+    }
+    .proof-item{
+      background:rgba(255,255,255,.72);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+      text-align:center;
+      color:var(--primary-dark);
+      font-weight:800
+    }
+    .testimonials{
+      background:linear-gradient(180deg,#f7faf7 0%,#eef5f0 100%);
+    }
+    .testimonial-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .testimonial{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:0 12px 32px rgba(24,51,39,.07);
+      position:relative;
+      overflow:hidden;
+    }
+    .testimonial:before{
+      content:"“";
+      position:absolute;
+      left:18px;
+      top:-6px;
+      font-size:110px;
+      line-height:1;
+      color:rgba(181,138,58,.16);
+      font-family:Georgia,serif;
+    }
+    .testimonial .person{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:16px;
+    }
+    .testimonial .person strong{font-size:18px}
+    .testimonial .person span{
+      color:var(--muted);
+      font-size:14px;
+      white-space:nowrap;
+    }
+    .testimonial .quote{
+      font-size:19px;
+      font-weight:800;
+      line-height:1.9;
+      margin:8px 0 16px;
+      color:var(--primary-dark);
+    }
+    .testimonial .context{
+      color:var(--muted);
+      font-size:15px;
+      margin:0;
+    }
+    .testimonial-note{
+      margin-top:22px;
+      background:#fffaf0;
+      border:1px solid #ead9ad;
+      border-radius:16px;
+      padding:16px 18px;
+      color:#67562f;
+      font-size:14px;
+      text-align:center;
+    }
+    .mid-cta{
+      margin-top:28px;
+      text-align:center;
+    }
+
     @media(max-width:850px){
       .problem-grid{grid-template-columns:1fr 1fr}
       .journey{grid-template-columns:1fr 1fr}
@@ -167,6 +282,43 @@
       .facts-grid{grid-template-columns:1fr 1fr}
       .for-who{grid-template-columns:1fr}
       .faq-grid{grid-template-columns:1fr}
+      .testimonial-grid{grid-template-columns:1fr}
+  
+    .hero-proof{
+      margin:26px auto 8px;
+      max-width:820px;
+      background:linear-gradient(135deg,#fffaf0,#eef6f1);
+      border:1px solid #e7d7aa;
+      border-radius:22px;
+      padding:22px 24px;
+      box-shadow:0 10px 28px rgba(24,51,39,.06);
+    }
+    .hero-proof .question{
+      font-size:clamp(23px,3vw,31px);
+      font-weight:900;
+      color:var(--primary-dark);
+      margin:0 0 6px;
+    }
+    .hero-proof .answer{
+      font-size:clamp(18px,2.4vw,24px);
+      font-weight:800;
+      color:var(--gold);
+      margin:0 0 8px;
+    }
+    .hero-proof .note{
+      font-size:14px;
+      color:var(--muted);
+      margin:0 0 12px;
+      line-height:1.8;
+    }
+    .hero-proof .link{
+      display:inline-block;
+      font-weight:800;
+      color:var(--primary);
+      border-bottom:1px dashed var(--primary);
+    }
+
+    .proof-strip{grid-template-columns:1fr}
       .sticky{display:block}
       footer{padding-bottom:96px}
     }
@@ -182,8 +334,8 @@
 
 <header class="hero">
   <div class="container hero-inner">
-    <div class="eyebrow">رحلة تدريبية عملية • أربعة أشهر</div>
-    <h1>مشروع العمر</h1>
+    <div class="eyebrow">النسخة 17 • أربعة أشهر • التسجيل مفتوح الآن</div>
+    <h1>مشروع العمر 17</h1>
     <h2>برنامج تدريبي لبناء مهارات الحفظ والتهيؤ لحفظ القرآن بإتقان</h2>
     <p>
       قبل أن تطلب من ذاكرتك أن تحفظ أكثر، تعلّم كيف تستخدمها بصورة أفضل:
@@ -193,7 +345,21 @@
       <a class="btn btn-primary" href="https://forms.gle/NYqUxFHvMEq3P9L69" target="_blank" rel="noopener">سجّل في مشروع العمر</a>
       <a class="btn btn-secondary" href="https://wa.me/905364663723?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%A7%D9%84%D8%B9%D9%85%D8%B1" target="_blank" rel="noopener">استفسر عبر واتساب</a>
     </div>
-    <p class="micro">البرنامج أونلاين • لقاءات مباشرة • متابعة وتمارين يومية</p>
+
+    <div class="hero-proof">
+      <p class="question">هل يمكن أن تحفظ القرآن في أربعة أشهر؟</p>
+      <p class="answer">نعم… وقد حقق ذلك مشاركون سابقون في مشروع العمر.</p>
+      <p class="note">لكن البرنامج لا يعد الجميع بالمدة نفسها؛ فالنتائج تختلف بحسب المحفوظ السابق، والاستعداد، والالتزام، والتدريب.</p>
+      <a class="link" href="#testimonials">تعرّف على تجارب المشاركين ↓</a>
+    </div>
+
+    <p class="micro">بعد 16 نسخة سابقة • البرنامج أونلاين • لقاءات مباشرة • متابعة وتمارين يومية</p>
+
+    <div class="proof-strip">
+      <div class="proof-item">16 نسخة سابقة قبل النسخة الحالية</div>
+      <div class="proof-item">تجارب من أعمار وخلفيات مختلفة</div>
+      <div class="proof-item">تدريب عملي لا يقتصر على جدول للحفظ</div>
+    </div>
   </div>
 </header>
 
@@ -346,6 +512,58 @@
   </div>
 </section>
 
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-title">
+      <h2>قالوا عن مشروع العمر</h2>
+      <p>بدل أن نصف لك البرنامج وحدنا، هذه نماذج مختصرة من تجارب مشاركين سابقين. اخترنا شهادات مختلفة في العمر ونقطة البداية حتى ترى أن رحلة كل شخص ليست نسخة من الآخر.</p>
+    </div>
+
+    <div class="testimonial-grid">
+      <article class="testimonial">
+        <div class="person">
+          <strong>غفران محمد السامرائي</strong>
+          <span>35 سنة • العراق</span>
+        </div>
+        <p class="quote">«كنت أحتاج ساعتين وأكثر لحفظ الصفحة ثم أنساها بعد فترة قصيرة.»</p>
+        <p class="context">
+          دخلت البرنامج ولديها خمسة أجزاء محفوظة حفظًا متقطعًا. وتقول إنها تعلمت الحفظ السمعي والبصري وبدأت تستخدم ذاكرتها بطريقة مختلفة، ثم واصلت رحلتها حتى أكملت ما بقي من القرآن.
+        </p>
+      </article>
+
+      <article class="testimonial">
+        <div class="person">
+          <strong>أيمن غالب</strong>
+          <span>44 سنة • العراق</span>
+        </div>
+        <p class="quote">«تجاوزت الرهبة والخوف من الحفظ الكمي.»</p>
+        <p class="context">
+          يصف تجربته بأنها نقلته من الخوف من حجم الحفظ إلى التعامل معه بثقة وتنظيم أكبر، مع اكتساب مهارات في الحفظ المتقن.
+        </p>
+      </article>
+
+      <article class="testimonial">
+        <div class="person">
+          <strong>عبد الملك خالد مجيد</strong>
+          <span>22 سنة • العراق</span>
+        </div>
+        <p class="quote">«تعلمت تقنيات واستراتيجيات للحفظ الكمي وتنشيط السمع والبصر والعقل.»</p>
+        <p class="context">
+          دخل البرنامج ولديه محفوظ سابق من سورة البقرة والكهف وبعض آل عمران، ثم استخدم ما تعلمه في مواصلة رحلته وإكمال ما بقي من القرآن.
+        </p>
+      </article>
+    </div>
+
+    <div class="testimonial-note">
+      هذه تجارب فردية لمشاركين سابقين وليست وعدًا بنتيجة واحدة للجميع؛ تختلف سرعة التقدم بحسب المحفوظ السابق، والاستعداد، والالتزام، والتدريب.
+    </div>
+
+    <div class="mid-cta">
+      <a class="btn btn-primary" href="https://forms.gle/NYqUxFHvMEq3P9L69" target="_blank" rel="noopener">أريد أن أبدأ تجربتي في مشروع العمر 17</a>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="container">
     <div class="section-title">
@@ -360,6 +578,7 @@
       <details><summary>كم أحتاج من الوقت يوميًا؟</summary><p>إضافة إلى وقت التدريب، يحتاج المشارك إلى ساعة أو أكثر أحيانًا مع تقدم البرنامج وطبيعة التمارين.</p></details>
       <details><summary>هل البرنامج للرجال والنساء؟</summary><p>نعم. المحاضرات مشتركة ومجموعة واتساب واحدة، بينما تكون متابعة المدرب للمتدربين بصورة فردية عند الحاجة.</p></details>
       <details><summary>هل توجد رسوم اشتراك؟</summary><p>نعم، توجد أجور رمزية للمشتركين الجدد، مع خصومات للاشتراك العائلي والمؤسسات. ومن شارك سابقًا يستطيع إعادة الدورة مجانًا إذا لم يكملها أو أراد المراجعة والتثبيت.</p></details>
+      <details><summary>هل تعني نتائج المشاركين أنني سأحقق النتيجة نفسها؟</summary><p>لا. الشهادات تعرض تجارب حقيقية لأشخاص كانت لديهم نقاط بداية مختلفة. النتائج تختلف بحسب المحفوظ السابق، والوقت، والاستعداد، والالتزام بالتدريب والواجبات.</p></details>
     </div>
   </div>
 </section>
@@ -367,7 +586,7 @@
 <section>
   <div class="container">
     <div class="cta">
-      <h2>هل أنت جاد في أن تجعل حفظ القرآن مشروعًا حقيقيًا في حياتك؟</h2>
+      <h2>إذا كنت تريد أن تبدأ رحلة الحفظ بطريقة أوضح وأقوى، فابدأ من هنا</h2>
       <p>ابدأ بتعلّم المهارات التي تحتاجها لهذه الرحلة، ثم انطلق بخطوات أوضح وأثبت نحو حفظ كتاب الله.</p>
       <div class="btns">
         <a class="btn" style="background:white;color:#174734" href="https://forms.gle/NYqUxFHvMEq3P9L69" target="_blank" rel="noopener">أريد الانضمام إلى مشروع العمر</a>
