@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>مشروع العمر | برنامج تدريبي لحفظ القرآن بإتقان</title>
+  <meta name="description" content="برنامج تدريبي لمدة أربعة أشهر لبناء مهارات الحفظ، تنشيط الذاكرة، زيادة التركيز، والتأهل لحفظ القرآن بإتقان.">
+  <style>
+    :root{
+      --bg:#f7f7f2;
+      --surface:#ffffff;
+      --text:#19231e;
+      --muted:#607068;
+      --primary:#1f6f50;
+      --primary-dark:#15523b;
+      --soft:#eaf4ee;
+      --line:#dfe8e2;
+      --gold:#b58a3a;
+      --shadow:0 14px 40px rgba(24,51,39,.10);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Tahoma, Arial, "Segoe UI", sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.9;
+    }
+    a{text-decoration:none}
+    .container{width:min(1120px,92%);margin:auto}
+    .hero{
+      min-height:92vh;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(181,138,58,.14), transparent 32%),
+        radial-gradient(circle at 90% 0%, rgba(31,111,80,.16), transparent 36%),
+        linear-gradient(180deg,#fbfcf9 0%,#f3f7f3 100%);
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:0;
+      background-image:linear-gradient(rgba(31,111,80,.035) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(31,111,80,.035) 1px,transparent 1px);
+      background-size:34px 34px;
+      mask-image:linear-gradient(to bottom,black,transparent 85%);
+    }
+    .hero-inner{position:relative;z-index:1;padding:80px 0;text-align:center}
+    .eyebrow{
+      display:inline-block;
+      background:var(--soft);
+      color:var(--primary-dark);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 18px;
+      font-weight:700;
+      margin-bottom:20px;
+    }
+    h1{font-size:clamp(42px,7vw,78px);margin:0 0 14px;line-height:1.1}
+    .hero h2{
+      font-size:clamp(23px,3vw,34px);
+      font-weight:700;
+      max-width:850px;
+      margin:0 auto 20px;
+      line-height:1.55;
+    }
+    .hero p{
+      font-size:19px;
+      color:var(--muted);
+      max-width:820px;
+      margin:0 auto 30px;
+    }
+    .btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:54px;padding:0 24px;border-radius:14px;font-weight:800;
+      transition:.2s ease;
+    }
+    .btn-primary{background:var(--primary);color:white;box-shadow:var(--shadow)}
+    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
+    .btn-secondary{background:white;color:var(--primary-dark);border:1px solid var(--line)}
+    .btn-secondary:hover{transform:translateY(-2px)}
+    .micro{font-size:14px!important;margin-top:16px!important}
+    section{padding:78px 0}
+    .section-title{text-align:center;margin-bottom:38px}
+    .section-title h2{font-size:clamp(28px,4vw,42px);margin:0 0 10px}
+    .section-title p{color:var(--muted);margin:0 auto;max-width:760px}
+    .problem-grid,.gain-grid,.facts-grid,.faq-grid{display:grid;gap:16px}
+    .problem-grid{grid-template-columns:repeat(4,1fr)}
+    .problem{
+      background:white;border:1px solid var(--line);border-radius:18px;padding:26px;
+      text-align:center;font-weight:800;box-shadow:0 8px 26px rgba(24,51,39,.05)
+    }
+    .callout{
+      margin-top:24px;background:var(--soft);border:1px solid #cfe2d6;
+      border-radius:20px;padding:26px;text-align:center;font-size:20px;font-weight:700
+    }
+    .journey{
+      display:grid;grid-template-columns:repeat(6,1fr);gap:10px;align-items:stretch
+    }
+    .step{
+      background:white;border:1px solid var(--line);border-radius:18px;padding:18px 12px;text-align:center;
+      font-weight:800;position:relative
+    }
+    .step span{display:block;font-size:30px;margin-bottom:6px}
+    .stages{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .stage{
+      background:white;border:1px solid var(--line);border-radius:var(--radius);
+      padding:30px;box-shadow:0 12px 32px rgba(24,51,39,.06)
+    }
+    .stage-num{
+      width:48px;height:48px;border-radius:14px;background:var(--primary);
+      color:white;display:grid;place-items:center;font-weight:900;margin-bottom:18px
+    }
+    .stage h3{font-size:24px;margin:0 0 12px}
+    ul{padding:0 20px 0 0;margin:0}
+    .stage li,.gain li{margin:8px 0}
+    .gain-grid{grid-template-columns:repeat(2,1fr)}
+    .gain{
+      background:white;border-radius:18px;border:1px solid var(--line);padding:22px;
+      display:flex;gap:14px;align-items:flex-start
+    }
+    .check{font-size:25px}
+    .facts{background:#173c2e;color:white}
+    .facts .section-title p{color:#d5e4dc}
+    .facts-grid{grid-template-columns:repeat(4,1fr)}
+    .fact{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:22px;text-align:center}
+    .fact b{display:block;font-size:18px}
+    .for-who{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:stretch
+    }
+    .panel{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:32px}
+    .panel h3{font-size:26px;margin-top:0}
+    .difference{
+      background:linear-gradient(135deg,#eaf4ee,#fff8e8);
+      border:1px solid var(--line);border-radius:var(--radius);padding:36px;text-align:center
+    }
+    .difference strong{font-size:27px;display:block;margin-bottom:12px}
+    .formula{font-weight:800;font-size:19px;color:var(--primary-dark)}
+    .faq-grid{grid-template-columns:1fr 1fr}
+    details{
+      background:white;border:1px solid var(--line);border-radius:16px;padding:18px 20px
+    }
+    summary{cursor:pointer;font-weight:800}
+    details p{color:var(--muted);margin-bottom:0}
+    .cta{
+      background:linear-gradient(135deg,#123c2d,#1f6f50);
+      color:white;border-radius:30px;padding:48px 30px;text-align:center;box-shadow:var(--shadow)
+    }
+    .cta h2{font-size:clamp(30px,4vw,46px);margin-top:0}
+    .cta p{max-width:760px;margin:0 auto 24px;color:#e4efe9;font-size:18px}
+    footer{padding:34px 0;text-align:center;color:var(--muted);font-size:14px}
+    .sticky{
+      position:fixed;left:14px;right:14px;bottom:14px;z-index:20;display:none;
+      background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+      border:1px solid var(--line);border-radius:18px;padding:10px;box-shadow:var(--shadow)
+    }
+    .sticky .btn{width:100%}
+    @media(max-width:850px){
+      .problem-grid{grid-template-columns:1fr 1fr}
+      .journey{grid-template-columns:1fr 1fr}
+      .stages{grid-template-columns:1fr}
+      .facts-grid{grid-template-columns:1fr 1fr}
+      .for-who{grid-template-columns:1fr}
+      .faq-grid{grid-template-columns:1fr}
+      .sticky{display:block}
+      footer{padding-bottom:96px}
+    }
+    @media(max-width:520px){
+      .problem-grid,.gain-grid,.facts-grid{grid-template-columns:1fr}
+      .hero{min-height:auto}
+      .hero-inner{padding:66px 0 90px}
+      section{padding:58px 0}
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container hero-inner">
+    <div class="eyebrow">رحلة تدريبية عملية • أربعة أشهر</div>
+    <h1>مشروع العمر</h1>
+    <h2>برنامج تدريبي لبناء مهارات الحفظ والتهيؤ لحفظ القرآن بإتقان</h2>
+    <p>
+      قبل أن تطلب من ذاكرتك أن تحفظ أكثر، تعلّم كيف تستخدمها بصورة أفضل:
+      درّبها، زد تركيزك، تعرّف إلى أساليب متعددة للحفظ، ثم انطلق في طريق حفظ القرآن على أساس أقوى.
+    </p>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://forms.gle/NYqUxFHvMEq3P9L69" target="_blank" rel="noopener">سجّل في مشروع العمر</a>
+      <a class="btn btn-secondary" href="https://wa.me/905364663723?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%A7%D9%84%D8%B9%D9%85%D8%B1" target="_blank" rel="noopener">استفسر عبر واتساب</a>
+    </div>
+    <p class="micro">البرنامج أونلاين • لقاءات مباشرة • متابعة وتمارين يومية</p>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>هل تواجه واحدة من هذه المشكلات؟</h2>
+      <p>كثير من صعوبات الحفظ لا تعني بالضرورة ضعف الذاكرة، بل قد تعني أنك لم تتعلم بعد كيف تستخدمها بطريقة أفضل.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem">تحفظ ببطء؟</div>
+      <div class="problem">تنسى سريعًا؟</div>
+      <div class="problem">يصعب عليك تثبيت المحفوظ؟</div>
+      <div class="problem">بدأت حفظ القرآن ثم توقفت؟</div>
+    </div>
+    <div class="callout">المشكلة ليست دائمًا في قدرتك على الحفظ… بل قد تكون في الطريقة التي تحفظ بها.</div>
+  </div>
+</section>
+
+<section style="background:#eef4ef">
+  <div class="container">
+    <div class="section-title">
+      <h2>ماذا سيحدث خلال أربعة أشهر؟</h2>
+      <p>رحلة متدرجة تنتقل بك من بناء أدوات الحفظ إلى استخدامها في حفظ القرآن بصورة جادة ومنظمة.</p>
+    </div>
+    <div class="journey">
+      <div class="step"><span>🧠</span>تنشيط الذاكرة</div>
+      <div class="step"><span>🎯</span>زيادة التركيز</div>
+      <div class="step"><span>⚡</span>رفع القدرة على الحفظ</div>
+      <div class="step"><span>👁️</span>تنويع طرق الحفظ</div>
+      <div class="step"><span>🔒</span>التثبيت والإتقان</div>
+      <div class="step"><span>📖</span>الانطلاق في حفظ القرآن</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>ثلاث مراحل… لكل مرحلة هدف واضح</h2>
+      <p>البرنامج لا يبدأ بحفظ القرآن مباشرة؛ بل يبني أولًا الأدوات والمهارات التي يحتاج إليها الحافظ.</p>
+    </div>
+    <div class="stages">
+      <article class="stage">
+        <div class="stage-num">1</div>
+        <h3>بناء قدرات الحفظ والذاكرة</h3>
+        <ul>
+          <li>التدريب على الحفظ البصري.</li>
+          <li>التدريب على الحفظ السمعي.</li>
+          <li>التدريب على الحفظ الكمي.</li>
+          <li>تمارين الذاكرة والتركيز.</li>
+          <li>حفظ مئات الأحاديث النبوية الشريفة.</li>
+          <li>تدريبات وواجبات يومية لتنشيط القدرة على الحفظ.</li>
+        </ul>
+      </article>
+      <article class="stage">
+        <div class="stage-num">2</div>
+        <h3>الإتقان والتثبيت</h3>
+        <ul>
+          <li>تصفير الأخطاء ورفع مستوى الإتقان.</li>
+          <li>التعامل مع المتشابهات.</li>
+          <li>الربط الذهني.</li>
+          <li>استعادة الحفظ القديم والمنسي.</li>
+          <li>الحفظ الاستدلالي.</li>
+          <li>مفاتيح الحفظ والتثبيت والمراجعة.</li>
+        </ul>
+      </article>
+      <article class="stage">
+        <div class="stage-num">3</div>
+        <h3>الانطلاق في حفظ القرآن</h3>
+        <p>
+          يبدأ المشارك هنا تطبيق ما تعلّمه بصورة فعلية، وينتقل من التمارين التدريبية
+          إلى حفظ القرآن بصورة جادة ومنظمة، مع الاعتماد بدرجة أكبر على نفسه وعلى المنهج الذي بناه خلال المرحلتين السابقتين.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fbfcf9">
+  <div class="container">
+    <div class="section-title">
+      <h2>ماذا ستكتسب؟</h2>
+    </div>
+    <div class="gain-grid">
+      <div class="gain"><div class="check">✓</div><div><b>تركيز أعلى</b><br>أدوات وتمارين تساعدك على تحسين الانتباه أثناء الحفظ.</div></div>
+      <div class="gain"><div class="check">✓</div><div><b>سرعة أفضل في الحفظ</b><br>تدريب تدريجي يرفع كفاءة الحفظ بدل الاعتماد على التكرار وحده.</div></div>
+      <div class="gain"><div class="check">✓</div><div><b>أساليب متعددة</b><br>بصري، سمعي، كمي، وربط ذهني لتكتشف ما يناسبك.</div></div>
+      <div class="gain"><div class="check">✓</div><div><b>استرجاع أقوى</b><br>تتدرب على استدعاء المحفوظ بدل الاكتفاء بالتعرّف عليه عند القراءة.</div></div>
+      <div class="gain"><div class="check">✓</div><div><b>فهم عملي للتثبيت</b><br>كيف تراجع، ومتى تراجع، وكيف تتعامل مع مواطن الضعف.</div></div>
+      <div class="gain"><div class="check">✓</div><div><b>منهج يستمر معك</b><br>نظام يمكنك مواصلة استخدامه بعد انتهاء البرنامج.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="facts">
+  <div class="container">
+    <div class="section-title">
+      <h2>كيف يعمل البرنامج؟</h2>
+      <p>برنامج مكثف يحتاج إلى وقت والتزام، لذلك من المهم أن تعرف نظامه قبل التسجيل.</p>
+    </div>
+    <div class="facts-grid">
+      <div class="fact">⏳<b>أربعة أشهر</b>مدة البرنامج</div>
+      <div class="fact">📅<b>4 أيام أسبوعيًا</b>السبت • الأحد • الأربعاء • الخميس</div>
+      <div class="fact">🕘<b>9:00 مساءً</b>بتوقيت مكة والعراق وتركيا</div>
+      <div class="fact">⏱️<b>نحو ساعتين</b>وقد يضاف وقت للواجب والتدريب</div>
+      <div class="fact">💻<b>Zoom</b>لقاءات مباشرة أونلاين</div>
+      <div class="fact">📱<b>WhatsApp</b>متابعة يومية وواجبات وتواصل</div>
+      <div class="fact">📄<b>ملخصات</b>للمحاضرات في المرحلة الأولى</div>
+      <div class="fact">🚫<b>لا توجد تسجيلات</b>لأن الحضور والتطبيق جزء من البرنامج</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container for-who">
+    <div class="panel">
+      <h3>لمن هذا البرنامج؟</h3>
+      <p>مناسب لك إذا كنت تريد حفظ القرآن، ولكنك:</p>
+      <ul>
+        <li>تشعر أن حفظك بطيء أو يحتاج وقتًا طويلًا.</li>
+        <li>تحفظ ثم يضعف المحفوظ سريعًا.</li>
+        <li>تعاني من تشتت التركيز.</li>
+        <li>لديك حفظ قديم تريد استعادته وإتقانه.</li>
+        <li>تريد أن تتعلم منهجًا واضحًا قبل بدء رحلة الحفظ الجادة.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>شروط المشاركة</h3>
+      <ul>
+        <li>العمر 14 سنة فأكثر.</li>
+        <li>قراءة القرآن قراءة صحيحة ومسترسلة دون أخطاء ظاهرة أو تهجّي للكلمات.</li>
+        <li>لا يشترط إتقان أحكام التجويد كاملة.</li>
+        <li>الالتزام بالحضور وعدم الغياب إلا لعذر.</li>
+        <li>الالتزام بالواجبات والتمارين اليومية.</li>
+        <li>الجدية طوال فترة البرنامج.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="difference">
+      <strong>لماذا مشروع العمر مختلف؟</strong>
+      <p>لأننا لا نعطيك جدول حفظ فقط؛ بل ندرّبك أولًا على مهارة الحفظ نفسها، ثم ننقلك تدريجيًا إلى تطبيقها في حفظ القرآن.</p>
+      <div class="formula">تدريب عملي + تمارين يومية + تنوع أساليب الحفظ + انتقال تدريجي إلى الحفظ الحقيقي للقرآن</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>أسئلة شائعة</h2>
+    </div>
+    <div class="faq-grid">
+      <details><summary>هل أحتاج أن أكون حافظًا لأجزاء من القرآن؟</summary><p>لا. لا يشترط وجود محفوظ سابق.</p></details>
+      <details><summary>هل يشترط إتقان التجويد؟</summary><p>ليس ضروريًا. المهم أن تكون القراءة صحيحة ومسترسلة دون أخطاء ظاهرة أو تهجّي للكلمات.</p></details>
+      <details><summary>هل توجد تسجيلات للمحاضرات؟</summary><p>لا نرسل التسجيلات للمشاركين؛ لأن البرنامج يعتمد على التطبيق والحضور المباشر.</p></details>
+      <details><summary>ماذا أفعل إذا فاتني لقاء؟</summary><p>يمكن متابعة الملخصات في المرحلة الأولى، والتي ترسل على مجموعة واتساب.</p></details>
+      <details><summary>هل البرنامج مناسب لمن لديه حفظ قديم؟</summary><p>نعم. يمكن الاستفادة من المهارات في استعادة الحفظ السابق ومراجعته ورفع مستوى إتقانه.</p></details>
+      <details><summary>كم أحتاج من الوقت يوميًا؟</summary><p>إضافة إلى وقت التدريب، يحتاج المشارك إلى ساعة أو أكثر أحيانًا مع تقدم البرنامج وطبيعة التمارين.</p></details>
+      <details><summary>هل البرنامج للرجال والنساء؟</summary><p>نعم. المحاضرات مشتركة ومجموعة واتساب واحدة، بينما تكون متابعة المدرب للمتدربين بصورة فردية عند الحاجة.</p></details>
+      <details><summary>هل توجد رسوم اشتراك؟</summary><p>نعم، توجد أجور رمزية للمشتركين الجدد، مع خصومات للاشتراك العائلي والمؤسسات. ومن شارك سابقًا يستطيع إعادة الدورة مجانًا إذا لم يكملها أو أراد المراجعة والتثبيت.</p></details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta">
+      <h2>هل أنت جاد في أن تجعل حفظ القرآن مشروعًا حقيقيًا في حياتك؟</h2>
+      <p>ابدأ بتعلّم المهارات التي تحتاجها لهذه الرحلة، ثم انطلق بخطوات أوضح وأثبت نحو حفظ كتاب الله.</p>
+      <div class="btns">
+        <a class="btn" style="background:white;color:#174734" href="https://forms.gle/NYqUxFHvMEq3P9L69" target="_blank" rel="noopener">أريد الانضمام إلى مشروع العمر</a>
+        <a class="btn" style="border:1px solid rgba(255,255,255,.35);color:white" href="https://wa.me/905364663723?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%A7%D9%84%D8%B9%D9%85%D8%B1" target="_blank" rel="noopener">لدي سؤال قبل التسجيل</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    مشروع العمر • برنامج تدريبي لحفظ القرآن الكريم
+  </div>
+</footer>
+
+<div class="sticky">
+  <a class="btn btn-primary" href="https://forms.gle/NYqUxFHvMEq3P9L69" target="_blank" rel="noopener">سجّل الآن</a>
+</div>
+
+</body>
+</html>
